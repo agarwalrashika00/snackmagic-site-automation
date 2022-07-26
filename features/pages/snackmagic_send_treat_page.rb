@@ -15,9 +15,7 @@ class SnackMagicSendTreatPage
     div(:swag, :xpath => '//*[@id="send-a-treat"]/div[3]/div[2]/div[2]/div/label/div[1]/div[1]')
     div(:snacks_swag, :xpath => '//*[@id="send-a-treat"]/div[3]/div[2]/div[3]/div/label/div[1]/div[1]')
     button(:create_order, :xpath => '//*[@id="root"]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[2]/div/button')
-    image(:ford_hat, :xpath => '//*[@id="swag-items-section"]/div[3]/div[2]/div/div/div/div/div/label/div/div[1]/img')
 
-    link(:finish_setup, :xpath => '//*[@id="root"]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[1]/div/div/div[4]/div/div/div[2]/div[3]/div/a')
     div(:build_own, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div/div[3]/div[1]/div/label/div[1]')
     link(:move_to_next, :class => 'button-program-green')
     button(:save_and_cont, :class => 'button-program-green')
@@ -41,13 +39,6 @@ class SnackMagicSendTreatPage
     button(:checkout, :xpath => '//*[@id="root"]/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button')
     div(:avvv_card, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div/div[5]/div/label/div')
 
-    # link(:add_new_card, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div/div[2]/a')
-    # text_field(:card_name, :id => 'card-name')
-    # text_field(:card_number, :xpath => '//*[@id="Field-numberInput"]')
-    # text_field(:expiry, :xpath => '//*[@id="Field-expiryInput"]')
-    # text_field(:cvc, :xpath => '//*[@id="Field-cvcInput"]')
-    # button(:add, :class => 'button-blue')
-
     div(:original_payment_method, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div[3]/div[2]/label/div')
 
     text_field(:email_from, :name => 'treatSenderName')
@@ -62,6 +53,7 @@ class SnackMagicSendTreatPage
 
     def fill_treat
         treat_data = data_for :treat1
+        populate_page_with treat_data
 
         case treat_data['for']
         when /Team/i
@@ -77,8 +69,6 @@ class SnackMagicSendTreatPage
             enter_other = treat_data['other']
         end
 
-        populate_page_with treat_data
-
         case treat_data['treat_type']
         when /snacks only/i
             snacks_element.click
@@ -91,14 +81,6 @@ class SnackMagicSendTreatPage
 
     def click_create_order
         create_order
-    end
-
-    def click_ford_hat
-        ford_hat_element.click
-    end
-
-    def finish_the_setup
-        finish_setup
     end
 
     def build_their_own
@@ -176,18 +158,6 @@ class SnackMagicSendTreatPage
     def click_saved_credit_card
         avvv_card_element.click
     end
-
-    # def click_to_add_new_card
-    #     add_new_card_element.click
-    # end
-
-    # def add_card_details
-    #     populate_page_with data_for :card
-    # end
-
-    # def add_card
-    #     add
-    # end
 
     def click_original_payment_method
         original_payment_method_element.click

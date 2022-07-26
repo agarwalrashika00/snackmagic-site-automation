@@ -17,12 +17,6 @@ message:
   msg_from: ~first_name
   msg: ~words(number = 10)
 
-card:
-  card_name: ~first_name
-  card_number: 4242 4242 4242
-  expiry: 12/25
-  cvc: ~randomize(100..999)
-
 email:
   email_from: ~first_name
   email_msg: ~words(number = 10)

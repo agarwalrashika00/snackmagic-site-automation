@@ -5,7 +5,7 @@ require 'capybara'
 require 'capybara/cucumber'
 
 Before do |scenario|
-    Capybara.default_driver= :selenium
+    Capybara.default_driver = :selenium
     Capybara.register_driver :selenium do |app|
         @app = app
     end
@@ -16,7 +16,6 @@ Before do |scenario|
 
     DataMagic.yml_directory = 'C:\Users\Rashika\Desktop\snackmagic\features\data\yml'
     DataMagic.load 'data.yml'
-
 end
 
 After do |scenario|

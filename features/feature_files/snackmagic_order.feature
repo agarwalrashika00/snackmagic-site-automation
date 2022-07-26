@@ -1,6 +1,6 @@
-Feature: To order a swag on snackmagic
+Feature: To customize snacks and swag on snackmagic and then checkout
 
-    Scenario:
+    Scenario: Order snacks and swag on snackmagic website
         Given I am on snackmagic login page
         When I login to my account
         Then I am redirected to snackmagic homepage
