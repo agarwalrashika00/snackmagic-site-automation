@@ -1,0 +1,28 @@
+user1:
+  email: avneet+4444@vinsol.com
+  password: Vinsol1.
+
+treat1:
+  treat_name: ~words(number = 3)
+  from: ~first_name
+  for: Friends or Family #Team, Clients, Virtual Event, Other
+  other: ~first_name
+  treat_type: snacks and swag #snacks only, swag only
+
+recipients:
+  total_recipients: ~randomize(7..10)
+  recipients_outside_us: ~randomize(3..7)
+
+message:
+  msg_from: ~first_name
+  msg: ~words(number = 10)
+
+card:
+  card_name: ~first_name
+  card_number: 4242 4242 4242
+  expiry: 12/25
+  cvc: ~randomize(100..999)
+
+email:
+  email_from: ~first_name
+  email_msg: ~words(number = 10)
