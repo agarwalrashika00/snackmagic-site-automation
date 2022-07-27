@@ -18,6 +18,7 @@ class SnackMagicLoginPage
 
     def user_login
         populate_page_with data_for :user1
+        sleep 1
         login_user
     end
 end

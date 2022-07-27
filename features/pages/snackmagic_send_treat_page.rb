@@ -51,6 +51,58 @@ class SnackMagicSendTreatPage
         start_new_order
     end
 
+    def customize_snacks_and_swag
+        build_their_own
+        sleep 1
+        click_next
+        click_dollar_45
+        sleep 1
+        click_next
+        click_restrict_to_email
+        sleep 1
+        click_next
+        fill_recipients
+        sleep 1
+        click_next
+        sleep 1
+        click_next
+        click_collect_address
+        sleep 1
+        click_save_and_cont
+        sleep 1
+        click_next
+        click_standard_shipping
+        sleep 1
+        click_save_and_cont
+        send_msg
+        sleep 1
+        click_next
+        sleep 1
+        click_next
+        donot_brand
+        sleep 1
+        click_next
+        donot_add_video
+        sleep 1
+        click_save_and_cont
+        donot_add_swag
+        sleep 1
+        click_next
+        click_snackmagic_box
+        sleep 1
+        click_next
+        donot_customize_box
+        sleep 1
+        click_next
+        donot_add_note
+        sleep 1
+        click_next
+        donot_add_donation
+        sleep 1
+        click_save_and_cont
+        sleep 1
+    end
+
     def fill_treat
         treat_data = data_for :treat1
         populate_page_with treat_data
@@ -83,16 +135,39 @@ class SnackMagicSendTreatPage
         create_order
     end
 
-    def build_their_own
-        build_own_element.click
-    end
-    
     def click_next
         move_to_next
     end
 
     def click_save_and_cont
         save_and_cont
+    end
+
+    def proceed_to_checkout
+        checkout
+    end
+
+    def click_saved_credit_card
+        avvv_card_element.click
+    end
+
+    def click_original_payment_method
+        original_payment_method_element.click
+    end
+
+    def send_email
+        populate_page_with data_for :email
+        email_immediately_element.click
+    end
+
+    def success_msg_text
+        success_msg_element.text
+    end
+
+    private
+
+    def build_their_own
+        build_own_element.click
     end
 
     def click_dollar_45
@@ -149,26 +224,5 @@ class SnackMagicSendTreatPage
 
     def donot_add_donation
         no_donation_element.click
-    end
-
-    def proceed_to_checkout
-        checkout
-    end
-
-    def click_saved_credit_card
-        avvv_card_element.click
-    end
-
-    def click_original_payment_method
-        original_payment_method_element.click
-    end
-
-    def send_email
-        populate_page_with data_for :email
-        email_immediately_element.click
-    end
-
-    def success_msg_text
-        success_msg_element.text
     end
 end

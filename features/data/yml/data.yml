@@ -7,7 +7,7 @@ treat1:
   from: ~first_name
   for: Friends or Family #Team, Clients, Virtual Event, Other
   other: ~first_name
-  treat_type: snacks and swag #snacks only, swag only
+  treat_type: snacks and swag
 
 recipients:
   total_recipients: ~randomize(7..10)
