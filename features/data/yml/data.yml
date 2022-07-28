@@ -9,6 +9,13 @@ treat1:
   other: ~first_name
   treat_type: snacks and swag
 
+treat2:
+  treat_name: ~words(number = 3)
+  from: ~first_name
+  for: Friends or Family #Team, Clients, Virtual Event, Other
+  other: ~first_name
+  treat_type: swag only
+
 recipients:
   total_recipients: ~randomize(7..10)
   recipients_outside_us: ~randomize(3..7)

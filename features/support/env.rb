@@ -1,4 +1,3 @@
-require 'selenium-webdriver'
 require 'page-object'
 require 'data_magic'
 require 'capybara'

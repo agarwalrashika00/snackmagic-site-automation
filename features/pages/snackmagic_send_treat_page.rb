@@ -17,7 +17,7 @@ class SnackMagicSendTreatPage
     button(:create_order, :xpath => '//*[@id="root"]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[2]/div/button')
 
     div(:build_own, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div/div[3]/div[1]/div/label/div[1]')
-    link(:move_to_next, :class => 'button-program-green')
+    link(:move_to_next, :class => 'common-rounded')
     button(:save_and_cont, :class => 'button-program-green')
     div(:dollar_45, :xpath => '//*[@id="budget-section"]/div[3]/div[1]/div/div/label/div/div[1]')
     div(:restrict_to_email, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div[3]/div/div[1]/div/div/label/div')
@@ -35,6 +35,11 @@ class SnackMagicSendTreatPage
     div(:not_customize_box, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div[3]/div/div[2]/div[2]/div/div/label/div/div')
     div(:no_note, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div/div[3]/div[2]/div[3]/div/div/label/div')
     div(:no_donation, :xpath => '//*[@id="donation-modal-form"]/div/div/div[1]/div/div[2]/div/div[3]/div[2]/div[2]/div/div/label/div')
+
+    link(:finish_setup, :class => 'btn-outline-primary')
+    image(:ford_hat, :xpath => '//*[@id="swag-items-section"]/div[3]/div[2]/div/div/div/div/div/label/div/div[1]/img')
+    div(:keep_for_next_time, :xpath => '//*[@id="swag-remaining-item-section"]/div[2]/div[2]/div/div[1]/div/label/div')
+    div(:restrict_to_specific_email, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div[3]/div/div[1]/div/div/label/div')
 
     button(:checkout, :xpath => '//*[@id="root"]/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div/div[2]/button')
     div(:avvv_card, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[1]/div/div[1]/div[2]/div/div[5]/div/label/div')
@@ -77,7 +82,7 @@ class SnackMagicSendTreatPage
         send_msg
         sleep 1
         click_next
-        sleep 1
+        sleep 2
         click_next
         donot_brand
         sleep 1
@@ -103,8 +108,56 @@ class SnackMagicSendTreatPage
         sleep 1
     end
 
-    def fill_treat
-        treat_data = data_for :treat1
+    def customize_swag_only
+        click_next
+        sleep 10
+        click_ford_hat
+        sleep 1
+        click_next
+        keep_them_for_next_time
+        sleep 1
+        click_next
+        restrict_link_to_specific_email
+        sleep 1
+        click_next
+        fill_recipients
+        sleep 1
+        click_next
+        sleep 1
+        click_next
+        click_collect_address
+        sleep 1
+        click_save_and_cont
+        sleep 1
+        click_next
+        click_standard_shipping
+        sleep 1
+        click_save_and_cont
+        send_msg
+        sleep 1
+        click_next
+        sleep 1
+        click_next
+        donot_brand
+        sleep 1
+        click_next
+        donot_add_video
+        sleep 1
+        click_save_and_cont
+        donot_customize_box
+        sleep 1
+        click_next
+        donot_add_note
+        sleep 1
+        click_next
+        donot_add_donation
+        sleep 1
+        click_save_and_cont
+        sleep 1
+    end
+
+    def fill_treat(treat_no)
+        treat_data = data_for "data/#{treat_no}"
         populate_page_with treat_data
 
         case treat_data['for']
@@ -164,7 +217,21 @@ class SnackMagicSendTreatPage
         success_msg_element.text
     end
 
-    private
+    def click_ford_hat
+        ford_hat_element.click
+    end
+
+    def keep_them_for_next_time
+        keep_for_next_time_element.click
+    end
+
+    def restrict_link_to_specific_email
+        restrict_to_specific_email_element.click
+    end
+
+    def click_finish_setup
+        finish_setup
+    end
 
     def build_their_own
         build_own_element.click

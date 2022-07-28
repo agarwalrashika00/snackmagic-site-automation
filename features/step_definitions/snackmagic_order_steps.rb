@@ -1,6 +1,8 @@
 Given(/^I am on snackmagic login page$/) do
     @snackmagic_loginpage = SnackMagicLoginPage.new(@browser.browser)
+    sleep 1
     @snackmagic_loginpage.visit_page
+    sleep 2
     @snackmagic_loginpage.click_login
 end
 
@@ -38,13 +40,24 @@ When(/^I click start a new order$/) do
    @snackmagic_send_treat_page.start_order
 end
 
-Then(/^create a new treat$/) do
-   @snackmagic_send_treat_page.fill_treat
+Then("create a new treat for {string}") do |treat_type|
+    case treat_type
+    when "swag only"
+        @snackmagic_send_treat_page.fill_treat("treat2")
+    when "snacks and swag"
+        @snackmagic_send_treat_page.fill_treat("treat1")
+    end
    @snackmagic_send_treat_page.click_create_order
+   sleep 2
 end
 
-And(/^start customizing the modals$/) do
-    @snackmagic_send_treat_page.customize_snacks_and_swag
+And("start customizing the modals for {string}") do |treat_for|
+    case treat_for
+    when "swag only"
+        @snackmagic_send_treat_page.customize_swag_only
+    when "snacks and swag"
+        @snackmagic_send_treat_page.customize_snacks_and_swag
+    end
 end
 
 When(/^I proceed to checkout$/) do
