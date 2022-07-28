@@ -48,7 +48,7 @@ Then("create a new treat for {string}") do |treat_type|
         @snackmagic_send_treat_page.fill_treat("treat1")
     end
    @snackmagic_send_treat_page.click_create_order
-   sleep 2
+   sleep 3
 end
 
 And("start customizing the modals for {string}") do |treat_type|
@@ -62,12 +62,7 @@ end
 
 When(/^I proceed to checkout$/) do
     @snackmagic_send_treat_page.proceed_to_checkout
-    @snackmagic_send_treat_page.click_saved_credit_card
-    sleep 1
-    @snackmagic_send_treat_page.click_next
-    @snackmagic_send_treat_page.click_original_payment_method
-    sleep 1
-    @snackmagic_send_treat_page.click_next
+    @snackmagic_send_treat_page.fill_checkout_details
 end
 
 And(/^send email to the recipient$/) do

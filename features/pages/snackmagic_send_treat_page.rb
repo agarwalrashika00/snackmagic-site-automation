@@ -200,12 +200,13 @@ class SnackMagicSendTreatPage
         checkout
     end
 
-    def click_saved_credit_card
-        avvv_card_element.click
-    end
-
-    def click_original_payment_method
-        original_payment_method_element.click
+    def fill_checkout_details
+        click_saved_credit_card
+        sleep 1
+        click_next
+        click_original_payment_method
+        sleep 1
+        click_next
     end
 
     def send_email
@@ -215,6 +216,16 @@ class SnackMagicSendTreatPage
 
     def success_msg_text
         success_msg_element.text
+    end
+
+    private
+
+    def click_saved_credit_card
+        avvv_card_element.click
+    end
+
+    def click_original_payment_method
+        original_payment_method_element.click
     end
 
     def click_ford_hat
