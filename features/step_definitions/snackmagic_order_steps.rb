@@ -51,8 +51,8 @@ Then("create a new treat for {string}") do |treat_type|
    sleep 2
 end
 
-And("start customizing the modals for {string}") do |treat_for|
-    case treat_for
+And("start customizing the modals for {string}") do |treat_type|
+    case treat_type
     when "swag only"
         @snackmagic_send_treat_page.customize_swag_only
     when "snacks and swag"
