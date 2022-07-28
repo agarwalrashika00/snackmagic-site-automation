@@ -16,9 +16,9 @@ class SnackMagicSendTreatPage
     div(:snacks_swag, :xpath => '//*[@id="send-a-treat"]/div[3]/div[2]/div[3]/div/label/div[1]/div[1]')
     button(:create_order, :xpath => '//*[@id="root"]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[2]/div/button')
 
-    div(:build_own, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div/div[3]/div[1]/div/label/div[1]')
-    link(:move_to_next, :class => 'common-rounded')
-    button(:save_and_cont, :class => 'button-program-green')
+    div(:build_own, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div[3]/div[1]/div/label/div[1]')
+    link(:move_to_next, :class => 'lh-34px')
+    button(:save_and_cont, :class => 'lh-34px')
     div(:dollar_45, :xpath => '//*[@id="budget-section"]/div[3]/div[1]/div/div/label/div/div[1]')
     div(:restrict_to_email, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div[3]/div/div[1]/div/div/label/div')
     text_field(:total_recipients, :xpath => '//*[@id="expectedCount"]')
@@ -31,7 +31,7 @@ class SnackMagicSendTreatPage
     div(:no_brand, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div[3]/div[2]/div[2]/div/label/div')
     div(:no_video, :xpath => '//*[@id="rlp-video-modal-form"]/div[3]/div[2]/div[2]/div/label/div')
     div(:no_swag, :xpath => '//*[@id="budget-section"]/div[2]/div/div[2]/div[2]/div/div/label/div')
-    image(:snackmagic_box, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div[3]/div[1]/div/label/div/div[1]/img')
+    image(:snackmagic_box, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div[3]/div/div[1]/div[1]/div/label/div[1]/img')
     div(:not_customize_box, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div[3]/div/div[2]/div[2]/div/div/label/div/div')
     div(:no_note, :xpath => '//*[@id="modal-root"]/div/div/div/div[1]/div/div[2]/div/div[3]/div[2]/div[3]/div/div/label/div')
     div(:no_donation, :xpath => '//*[@id="donation-modal-form"]/div/div/div[1]/div/div[2]/div/div[3]/div[2]/div[2]/div/div/label/div')
@@ -82,7 +82,7 @@ class SnackMagicSendTreatPage
         send_msg
         sleep 1
         click_next
-        sleep 2
+        sleep 2 
         click_next
         donot_brand
         sleep 1
